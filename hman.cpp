@@ -30,7 +30,7 @@ void print(Node* root, std::string s) {
   print(root->right,s+"1");
 }
 
-void makeTree(char data[], int freq[], int size) {
+void makeTree(std::string data, int freq[], int size) {
   std::priority_queue<Node*, std::vector<Node*>, compare> Heap;
   Node* left, *right, *top;
   for(int i = 0; i < size; ++i) Heap.push(new Node(data[i], freq[i]));
@@ -51,11 +51,13 @@ void makeTree(char data[], int freq[], int size) {
 }
 
 int main() {
-  char L[] = { 'a', 'b', 'c', 'd', 'e', 'f' };
+  //char L[] = { 'a', 'b', 'c', 'd', 'e', 'f' };
   int F[] = { 5, 9, 12, 13, 16, 45 };
-
-  int size = sizeof(L)/sizeof(L[0]);
-  makeTree(L, F, size);
+  int size = sizeof(F)/sizeof(F[0]);
+  std::string text = "abcdef";
+  
+  
+  makeTree(text, F, size);
 
   return 0;
 
